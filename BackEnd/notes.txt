@@ -1,0 +1,36 @@
+** database'e yazdıktan sonramı yoksa öncemi loglama yapmalıyız 
+** yoksa controllerlarda responselardan hemen öncemi bu işlemi yapmalıyız ?
+** şuan loglama seviyesi service katmanında olacak yani mongodb nin servicelerine yani modellerine eriştiğimiz  serviceler üzerinden 
+yani database işlemlerinde kullanılcak 
+** databse 'e yazılmadan önce yada sonra  bilgilerin log edilmesini sağlayacağız     
+
+
+
+
+******************* Logging ( Winston )
+
+** MongoDB de model üzerinden aksiyon alıyoruz fakat bende model klasöründe schema yok nasıl yapacağım ???? 
+** ben direkt bağlantı ve sorgular üzerinden ilerledim
+*** şöyle yapılabilir ben şimdilik bir bilgi göndermeyeceğim veritabanına sadece get methodunu kullandım 
+bu nedenle sorgularımdan sonra yada önce yapsam olur mu???????
+
+
+** models'de schema'dan sonra yazıyor 
+
+** her schema için yani her model için logger yazıcaz 
+** mesela winston error logunu oluştururken root dizinimizde oluşturur ama biz 
+** v1 klasörü içerisindeki > src klasörü içerisindeki > logs klasörü içerisinde yapmak istiyorum diyor bu bende değişecek
+
+
+** bir sonraki derste global bir error sınıfı yazıp (middleware olarak) onunla birlikte bu loglama işlemini gerçekleştiricek
+
+** işlem çok basit bundan sonra sadece 
+
+logger.log({
+    level:  "info",
+    message: .... // bu kısmı bilmiyorum çünkü bu mongoose kısmında var postgresql tarafını bilmiyorum
+
+})
+
+** custom transport diye birşey var logları direkt veritabanına basarsın  database'e istek atar
+
